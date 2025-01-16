@@ -4338,7 +4338,7 @@ public class Blocks{
                 buildingDamageMultiplier = 0.3f;
             }},
             Items.oxide, new ArtilleryBulletType(2.5f, 300, "shell"){{
-                hitEffect = new MultiEffect(Fx.titanExplosionLarge, Fx.titanSmokeLarge);
+                hitEffect = new MultiEffect(Fx.titanExplosionLarge, Fx.titanSmokeLarge, Fx.smokeAoeCloud);
                 despawnEffect = Fx.none;
                 knockback = 2f;
                 lifetime = 190f;
@@ -4371,6 +4371,23 @@ public class Blocks{
                 shrinkX = 0.2f;
                 shrinkY = 0.1f;
                 buildingDamageMultiplier = 0.25f;
+
+                fragBullets = 1;
+                fragBullet = new EmptyBulletType(){{
+                    lifetime = 60f * 2.5f;
+                    bulletInterval = 20f;
+                    intervalBullet = new EmptyBulletType(){{
+                        splashDamage = 30f;
+                        collidesGround = true;
+                        collidesAir = false;
+                        collides = false;
+                        hitEffect = Fx.none;
+                        pierce = true;
+                        instantDisappear = true;
+                        splashDamageRadius = 90f;
+                        buildingDamageMultiplier = 0.2f;
+                    }};
+                }};
             }}
             );
 
